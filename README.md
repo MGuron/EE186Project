@@ -9,9 +9,14 @@ The general pollution data, data about moments of high pollution, and vehicle co
 
 An extension of this project would involve integrating a machine learning framework to get a more precise correlation between the amount of pollution generated locally and the types and counts of vehicles passing at a certain point in time. This would be done with further processing on a remote server using HOG (Histogram of gradient) feature extraction and a support vector machine classifier to classify vehicles in a video stream. 
 
-March 7th – obtain all free parts from ETG, continued research on software and particulate sensor, begin software work
-March 14th – Obtain particulate sensor and misc parts, initial OpenCV and webcam integration
-March 28th – finish object detection script, connect and test all controllers and sensors
-April 4th – Troubleshoot data connections between sensors and microcontrollers, have full framework for all software
-April 21st – Finish outdoor installation and have all software in working condition
-April 28th – Continued outdoor and network testing program finished, Software fully functional, AWS site functional 
+# March 7th – obtain all free parts from ETG, continued research on software and particulate sensor, begin software work
+
+# March 14th – Obtain particulate sensor and misc parts, initial OpenCV and webcam integration
+
+# March 28th – finish object detection script, connect and test all controllers and sensors
+
+# April 4th – Troubleshoot data connections between sensors and microcontrollers, have full framework for all software
+
+# April 21st – Finish outdoor installation and have all software in working condition
+
+# April 28th – Continued outdoor and network testing program finished, Software fully functional, AWS site functional 
