@@ -60,8 +60,8 @@ minY = int(frameHeight*0.3)
  
 # iterate regions of interest
 for (x,y,w,h) in cars:
-roi = [x,y,w,h]
-roiImage = frame[y:y+h, x:x+w]
+ roi = [x,y,w,h]
+ roiImage = frame[y:y+h, x:x+w]
  
 carWidth = roiImage.shape[0]
 if y &gt; minY:
