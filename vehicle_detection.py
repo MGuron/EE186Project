@@ -2,6 +2,9 @@
 
 import cv2
 print(cv2.__version__)
+import io,imutils
+import numpy
+from imutils.video import VideoStream
 
 cascade_src = 'cars.xml'
 video_src = VideoStream(0).start()
