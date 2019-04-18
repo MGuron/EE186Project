@@ -2,13 +2,19 @@
 
 import cv2
 print(cv2.__version__)
-import io,imutils
+import io
 import numpy
-from imutils.video import VideoStream
+import board
+import busio
+i2c = busio.I2C(board.SCL, board.SDA)
+import adafruit_ads1x15.ads1115 as ADS
+from adafruit_ads1x15.analog_in import AnalogIn
+ads = ADS.ADS1115(i2c)
+
 
 cascade_src = 'cars.xml'
-video_src = VideoStream(0).start()
-#video_src = 'dataset/video2.avi'
+#video_src = VideoStream(0).start()
+video_src = 'dataset/video2.avi'
 
 cap = cv2.VideoCapture(video_src)
 car_cascade = cv2.CascadeClassifier(cascade_src)
