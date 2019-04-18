@@ -34,7 +34,7 @@ while True:
             print("Polluter found")
             cv2.imwrite("frame%d.jpg" % time.time(), cap)
     
-    cv2.imshow('video', img)
+    #cv2.imshow('video', img)
     
     if cv2.waitKey(33) == 27:
         break
