@@ -32,7 +32,7 @@ while True:
         cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),2)
         if chan.value > 1000:
             print("Polluter found")
-            cv2.imwrite("frame%d.jpg" % time.time(), cap)
+            cv2.imwrite("frame%d.jpg" % time.time(), img)
     
     #cv2.imshow('video', img)
     
