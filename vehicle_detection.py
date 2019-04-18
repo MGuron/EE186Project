@@ -10,7 +10,7 @@ i2c = busio.I2C(board.SCL, board.SDA)
 import adafruit_ads1x15.ads1115 as ADS
 from adafruit_ads1x15.analog_in import AnalogIn
 ads = ADS.ADS1115(i2c)
-
+chan = AnalogIn(ads, ADS.P0)
 
 cascade_src = 'cars.xml'
 #video_src = VideoStream(0).start()
@@ -29,7 +29,10 @@ while True:
     cars = car_cascade.detectMultiScale(gray, 1.1, 1)
 
     for (x,y,w,h) in cars:
-        cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),2)      
+        cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),2)
+        if chan.value > 3000:
+            print("Polluter found")
+            cv2.imwrite("frame%d.jpg" % time.time(), cap)
     
     cv2.imshow('video', img)
     
