@@ -30,7 +30,7 @@ while True:
 
     for (x,y,w,h) in cars:
         cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),2)
-        if chan.value > 1000:
+        if chan.value > 3000:
             print("Polluter found")
             cv2.imwrite("frame%d.jpg" % time.time(), img)
     
