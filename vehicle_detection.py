@@ -33,6 +33,7 @@ myShadowClient.configureEndpoint(HOST_NAME, 8883)
 myShadowClient.configureCredentials(ROOT_CA, PRIVATE_KEY,CERT_FILE)
 myShadowClient.configureConnectDisconnectTimeout(10)
 myShadowClient.configureMQTTOperationTimeout(5)
+print("Here")
 myShadowClient.connect()
 
 
