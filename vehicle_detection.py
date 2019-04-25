@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTClient.disableMetricsCollection()
-AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTShadowClient.disableMetricsCollection()
+#AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTClient.disableMetricsCollection()
+#AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTShadowClient.disableMetricsCollection()
 
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTShadowClient
 SHADOW_CLIENT = "raspi"
