@@ -2,7 +2,7 @@
 #AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTClient.disableMetricsCollection()
 #AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTShadowClient.disableMetricsCollection()
 import subprocess
-subprocess.call([start.sh])
+subprocess.call(['./start.sh'])
 
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTShadowClient
 SHADOW_CLIENT = "raspi"
