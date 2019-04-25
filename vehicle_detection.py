@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 #AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTClient.disableMetricsCollection()
 #AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTShadowClient.disableMetricsCollection()
-import subprocess
-subprocess.call(['./start.sh'])
+#import subprocess
+#subprocess.call(['./start.sh'])
 
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTShadowClient
-SHADOW_CLIENT = "raspi"
+SHADOW_CLIENT = "myShadowClient"
 HOST_NAME = "ayrlsz5dvz4iu-ats.iot.us-west-2.amazonaws.com"
 ROOT_CA = "root-CA.crt"
 PRIVATE_KEY = "raspi.private.key"
