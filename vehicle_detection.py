@@ -7,6 +7,23 @@ PRIVATE_KEY = "yourkeyid-private.pem.key"
 CERT_FILE = "yourkeyid-certificate.pem.crt.txt"
 SHADOW_HANDLER = "MyRPi"
 
+def myShadowUpdateCallback(payload, responseStatus, token):
+  print()
+  print('UPDATE: $aws/things/' + SHADOW_HANDLER +
+    '/shadow/update/#')
+  print("payload = " + payload)
+  print("responseStatus = " + responseStatus)
+  print("token = " + token)
+
+# Create, configure, and connect a shadow client.
+myShadowClient = AWSIoTMQTTShadowClient(SHADOW_CLIENT)
+myShadowClient.configureEndpoint(HOST_NAME, 8883)
+myShadowClient.configureCredentials(ROOT_CA, PRIVATE_KEY,
+  CERT_FILE)
+myShadowClient.configureConnectDisconnectTimeout(10)
+myShadowClient.configureMQTTOperationTimeout(5)
+myShadowClient.connect()
+
 import time
 import cv2
 print(cv2.__version__)
@@ -41,6 +58,7 @@ while True:
         if chan.value > 3000:
             print("Polluter found")
             cv2.imwrite("frame%d.jpg" % time.time(), img)
+            myDeviceShadow.shadowUpdate('{"state":{"reported":{"Polluter":"Detected"}}}', myShadowUpdateCallback, 5)
     
     #cv2.imshow('video', img)
     
