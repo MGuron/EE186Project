@@ -11,6 +11,13 @@ ROOT_CA = "root-CA.crt"
 PRIVATE_KEY = "raspi.private.key"
 CERT_FILE = "raspi.cert.pem"
 SHADOW_HANDLER = "MyRPi"
+import time
+import cv2
+print(cv2.__version__)
+import io
+import numpy
+import board
+import busio
 
 def myShadowUpdateCallback(payload, responseStatus, token):
   print()
@@ -28,13 +35,7 @@ myShadowClient.configureConnectDisconnectTimeout(10)
 myShadowClient.configureMQTTOperationTimeout(5)
 myShadowClient.connect()
 
-import time
-import cv2
-print(cv2.__version__)
-import io
-import numpy
-import board
-import busio
+
 i2c = busio.I2C(board.SCL, board.SDA)
 import adafruit_ads1x15.ads1115 as ADS
 from adafruit_ads1x15.analog_in import AnalogIn
