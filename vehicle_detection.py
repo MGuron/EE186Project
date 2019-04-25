@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
+AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTClient.disableMetricsCollection()
+AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTShadowClient.disableMetricsCollection()
+
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTShadowClient
-SHADOW_CLIENT = "myShadowClient"
-HOST_NAME = "yourhostname-ats.iot.us-east-1.amazonaws.com"
-ROOT_CA = "AmazonRootCA1.pem"
-PRIVATE_KEY = "yourkeyid-private.pem.key"
-CERT_FILE = "yourkeyid-certificate.pem.crt.txt"
+SHADOW_CLIENT = "raspi"
+HOST_NAME = "ayrlsz5dvz4iu-ats.iot.us-west-2.amazonaws.com"
+ROOT_CA = "root-CA.crt"
+PRIVATE_KEY = "raspi.private.key"
+CERT_FILE = "raspi.cert.pem.txt"
 SHADOW_HANDLER = "MyRPi"
 
 def myShadowUpdateCallback(payload, responseStatus, token):
@@ -18,8 +21,7 @@ def myShadowUpdateCallback(payload, responseStatus, token):
 # Create, configure, and connect a shadow client.
 myShadowClient = AWSIoTMQTTShadowClient(SHADOW_CLIENT)
 myShadowClient.configureEndpoint(HOST_NAME, 8883)
-myShadowClient.configureCredentials(ROOT_CA, PRIVATE_KEY,
-  CERT_FILE)
+myShadowClient.configureCredentials(ROOT_CA, PRIVATE_KEY,CERT_FILE)
 myShadowClient.configureConnectDisconnectTimeout(10)
 myShadowClient.configureMQTTOperationTimeout(5)
 myShadowClient.connect()
