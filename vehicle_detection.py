@@ -1,4 +1,12 @@
 # -*- coding: utf-8 -*-
+from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTShadowClient
+SHADOW_CLIENT = "myShadowClient"
+HOST_NAME = "yourhostname-ats.iot.us-east-1.amazonaws.com"
+ROOT_CA = "AmazonRootCA1.pem"
+PRIVATE_KEY = "yourkeyid-private.pem.key"
+CERT_FILE = "yourkeyid-certificate.pem.crt.txt"
+SHADOW_HANDLER = "MyRPi"
+
 import time
 import cv2
 print(cv2.__version__)
