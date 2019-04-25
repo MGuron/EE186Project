@@ -7,7 +7,7 @@ SHADOW_CLIENT = "raspi"
 HOST_NAME = "ayrlsz5dvz4iu-ats.iot.us-west-2.amazonaws.com"
 ROOT_CA = "root-CA.crt"
 PRIVATE_KEY = "raspi.private.key"
-CERT_FILE = "raspi.cert.pem.txt"
+CERT_FILE = "raspi.cert.pem"
 SHADOW_HANDLER = "MyRPi"
 
 def myShadowUpdateCallback(payload, responseStatus, token):
