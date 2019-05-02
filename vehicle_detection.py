@@ -31,13 +31,13 @@ def myShadowUpdateCallback(payload, responseStatus, token):#method to update AWS
   print("token = " + token)
 
 # Create, configure, and connect a shadow client.
-myShadowClient = AWSIoTMQTTShadowClient(SHADOW_CLIENT)
-myShadowClient.configureEndpoint(HOST_NAME, 8883)
-myShadowClient.configureCredentials(ROOT_CA, PRIVATE_KEY,CERT_FILE)
-myShadowClient.configureConnectDisconnectTimeout(10)
-myShadowClient.configureMQTTOperationTimeout(5)
+#myShadowClient = AWSIoTMQTTShadowClient(SHADOW_CLIENT)
+#myShadowClient.configureEndpoint(HOST_NAME, 8883)
+#myShadowClient.configureCredentials(ROOT_CA, PRIVATE_KEY,CERT_FILE)
+#myShadowClient.configureConnectDisconnectTimeout(10)
+#myShadowClient.configureMQTTOperationTimeout(5)
 print("Here")
-myShadowClient.connect()
+#myShadowClient.connect()
 
 
 i2c = busio.I2C(board.SCL, board.SDA)#ADS 1115 imports and declarations
@@ -67,7 +67,7 @@ while True:
         if chan.value > 3000:#when the sensor reading is above 300
             print("Polluter found")
             cv2.imwrite("frame%d.jpg" % time.time(), img)#store the video frame at this time and assign the current time to the name of the file
-            myDeviceShadow.shadowUpdate('{"state":{"reported":{"Polluter":"Detected"}}}', myShadowUpdateCallback, 5)#send data to AWS IoT that a polluting vehicle was detected
+            #myDeviceShadow.shadowUpdate('{"state":{"reported":{"Polluter":"Detected"}}}', myShadowUpdateCallback, 5)#send data to AWS IoT that a polluting vehicle was detected
     
     #cv2.imshow('video', img) #shows input image on desktop, disabled for monitorless operation
     
