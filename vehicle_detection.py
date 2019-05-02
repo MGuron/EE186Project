@@ -16,8 +16,8 @@ import numpy
 import board
 import busio
 
-import subprocess
-subprocess.call(['./start.sh'])#starts AWS IoT server connection, possibly not necessary
+#import subprocess
+#subprocess.call(['./start.sh'])#starts AWS IoT server connection, possibly not necessary
 
 AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTClient.disableMetricsCollection()
 AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTShadowClient.disableMetricsCollection()
