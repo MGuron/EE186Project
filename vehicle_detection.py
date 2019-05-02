@@ -19,8 +19,8 @@ import busio
 #import subprocess
 #subprocess.call(['./start.sh'])#starts AWS IoT server connection, possibly not necessary
 
-AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTClient.disableMetricsCollection()
-AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTShadowClient.disableMetricsCollection()
+#AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTClient.disableMetricsCollection()
+#AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTShadowClient.disableMetricsCollection()
 
 def myShadowUpdateCallback(payload, responseStatus, token):#method to update AWS shadow client
   print()
