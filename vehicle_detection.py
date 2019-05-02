@@ -19,8 +19,8 @@ import busio
 #import subprocess
 #subprocess.call(['./start.sh'])#starts AWS IoT server connection, possibly not necessary
 
-#AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTClient.disableMetricsCollection()
-#AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTShadowClient.disableMetricsCollection()
+AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTClient.disableMetricsCollection()
+AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTShadowClient.disableMetricsCollection()
 
 def myShadowUpdateCallback(payload, responseStatus, token):#method to update AWS shadow client
   print()
@@ -30,14 +30,14 @@ def myShadowUpdateCallback(payload, responseStatus, token):#method to update AWS
   print("responseStatus = " + responseStatus)
   print("token = " + token)
 
-# Create, configure, and connect a shadow client.
-#myShadowClient = AWSIoTMQTTShadowClient(SHADOW_CLIENT)
-#myShadowClient.configureEndpoint(HOST_NAME, 8883)
-#myShadowClient.configureCredentials(ROOT_CA, PRIVATE_KEY,CERT_FILE)
-#myShadowClient.configureConnectDisconnectTimeout(10)
-#myShadowClient.configureMQTTOperationTimeout(5)
+ #Create, configure, and connect a shadow client.
+myShadowClient = AWSIoTMQTTShadowClient(SHADOW_CLIENT)
+myShadowClient.configureEndpoint(HOST_NAME, 8883)
+myShadowClient.configureCredentials(ROOT_CA, PRIVATE_KEY,CERT_FILE)
+myShadowClient.configureConnectDisconnectTimeout(10)
+myShadowClient.configureMQTTOperationTimeout(5)
 print("Here")
-#myShadowClient.connect()
+myShadowClient.connect()
 
 
 i2c = busio.I2C(board.SCL, board.SDA)#ADS 1115 imports and declarations
@@ -46,8 +46,8 @@ from adafruit_ads1x15.analog_in import AnalogIn
 ads = ADS.ADS1115(i2c)
 chan = AnalogIn(ads, ADS.P0)
 
-cascade_src = 'cars.xml'#assigns vehicle dataset to cars.xml
-#video_src = VideoStream(0).start()#assigns input to video or live webcam stream
+#cascade_src = 'cars.xml'#assigns vehicle dataset to cars.xml
+video_src = VideoStream(0).start()#assigns input to video or live webcam stream
 video_src = 'dataset/video2.avi'
 
 cap = cv2.VideoCapture(video_src)#places video into openCV instance
@@ -67,7 +67,7 @@ while True:
         if chan.value > 3000:#when the sensor reading is above 300
             print("Polluter found")
             cv2.imwrite("frame%d.jpg" % time.time(), img)#store the video frame at this time and assign the current time to the name of the file
-            #myDeviceShadow.shadowUpdate('{"state":{"reported":{"Polluter":"Detected"}}}', myShadowUpdateCallback, 5)#send data to AWS IoT that a polluting vehicle was detected
+            myDeviceShadow.shadowUpdate('{"state":{"reported":{"Polluter":"Detected"}}}', myShadowUpdateCallback, 5)#send data to AWS IoT that a polluting vehicle was detected
     
     cv2.imshow('video', img) #shows input image on desktop, disabled for monitorless operation
     
