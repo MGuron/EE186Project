@@ -69,7 +69,7 @@ while True:
             cv2.imwrite("frame%d.jpg" % time.time(), img)#store the video frame at this time and assign the current time to the name of the file
             #myDeviceShadow.shadowUpdate('{"state":{"reported":{"Polluter":"Detected"}}}', myShadowUpdateCallback, 5)#send data to AWS IoT that a polluting vehicle was detected
     
-    #cv2.imshow('video', img) #shows input image on desktop, disabled for monitorless operation
+    cv2.imshow('video', img) #shows input image on desktop, disabled for monitorless operation
     
     if cv2.waitKey(33) == 27:
         break
